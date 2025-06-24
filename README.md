@@ -45,8 +45,31 @@ mkdir /data
 ## run and test (from cli)
 
 ```bash
+# run MCP server
 python3 main.py
+
+🔁 Loading documents...
+🚀 Serving on http://localhost:8000/ask
+INFO:     Will watch for changes in these directories: ['/<OMITTED>/mcp-101']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [3360] using StatReload
+🔁 Loading documents...
+🔁 Loading documents...
+INFO:     Started server process [3370]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
 ```
+
+```bash
+# query MCP server
+curl -X POST http://localhost:8000/ask -H "Content-Type: application/json" -d '{"query": "what is porirua"}'
+
+{"answer":" Porirua is a city located in the North Island of New Zealand."}%
+```
+
+Now we know it works via the API that could be exposed to the outside world through method of choice i'd use cloudflared tunnels to wrap it with a custom domain name and SSL certificate and host it properly
+
+In next step we can create a basic visual studio code extension to provide a UI for users to query it, initially locally just for this 101 exercise but if releasing for public consumption point it at the public API endpoint
 
 ## create visual studio plugin
 
