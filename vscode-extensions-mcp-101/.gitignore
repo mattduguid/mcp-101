@@ -1,0 +1,11 @@
+# Ignore Node dependencies
+node_modules/
+
+# Optional extras:
+dist/
+out/
+.vscode-test/
+.vscode/
+
+# Ignore Mac system files
+.DS_Store

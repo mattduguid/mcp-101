@@ -1,4 +1,7 @@
 llama-index
 llama-index-llms-ollama
+llama-index-embeddings-ollama
 llama-index-readers-web
 llama-index-readers-file
+fastapi
+uvicorn
