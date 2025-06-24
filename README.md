@@ -40,7 +40,7 @@ mkdir /data
 
 ## create MCP server from content to be searched
 
-[edit main.py](main.py) which contains the code to run the MCP server,
+[edit main.py](main.py) which contains the code to run the MCP server including links to my sample .pdf/.md/web urls for custom content,
 
 ## run and test (from cli)
 
