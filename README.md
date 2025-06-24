@@ -26,7 +26,7 @@ llama-index-readers-file
 ```
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## create folder of content to be searched
@@ -72,6 +72,6 @@ while True:
 ## run it
 
 ```bash
-python main.py
+python3 main.py
 ```
 
