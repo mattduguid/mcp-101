@@ -19,6 +19,7 @@ ollama run mistral
 ## create requirements.txt for python and install
 
 [edit requirements.txt](requirements.txt) and add,
+
 ```text
 llama-index
 llama-index-llms-ollama
@@ -39,36 +40,7 @@ mkdir /data
 
 ## create MCP server from content to be searched
 
-```python
-from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
-from llama_index.llms.ollama import Ollama
-from llama_index.readers.web import SimpleWebPageReader
-
-# load local files
-local_docs = SimpleDirectoryReader(input_dir="./data").load_data()
-
-# load multiple websites
-urls = [
-    "https://www.stuff.co.nz",
-    "https://www.nzherald.co.nz",
-    "https://www.cnn.com"
-]
-web_docs = SimpleWebPageReader().load_data(urls)
-
-# combine documents
-documents = local_docs + web_docs
-
-# create index and chat
-llm = Ollama(model="mistral") # <-- this is where it used the container downloaded in section above "run ollama"
-index = VectorStoreIndex.from_documents(documents)
-chat_engine = index.as_chat_engine()
-
-# enter chat loop
-while True:
-    prompt = input("You: ")
-    response = chat_engine.chat(prompt)
-    print("Bot:", response.response)
-```
+[edit main.py](main.py) which contains the code to run the MCP server,
 
 ## run and test (from cli)
 
@@ -197,84 +169,13 @@ For more information, also visit http://code.visualstudio.com and follow us @cod
 
 ### add code to scaffold
 
-edit <PATH_TO_REPO/vscode-extensions-mcp-101/src/extension.ts
-add,
-
-```typescript
-import * as vscode from 'vscode';
-
-export function activate(context: vscode.ExtensionContext) {
-  const command = 'mcp-101.chat'; // command name to launch sidebar
-  context.subscriptions.push(
-    vscode.commands.registerCommand(command, () => {
-      const panel = vscode.window.createWebviewPanel(
-        'mcpChat',
-        'Local MCP Chat',
-        vscode.ViewColumn.One,
-        {
-          enableScripts: true
-        }
-      );
-
-      panel.webview.html = getWebviewContent();
-    })
-  );
-}
-
-function getWebviewContent(): string {
-  return `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <style>
-        body { font-family: sans-serif; padding: 10px; }
-        #chat { height: 80vh; overflow-y: auto; border: 1px solid #ccc; padding: 10px; }
-        textarea { width: 100%; margin-top: 10px; }
-        button { margin-top: 5px; }
-      </style>
-    </head>
-    <body>
-      <h2>Ask your local assistant</h2>
-      <div id="chat"></div>
-      <textarea id="input" rows="3"></textarea>
-      <button id="send">Send</button>
-      <script>
-        const chat = document.getElementById('chat');
-        const input = document.getElementById('input');
-        const send = document.getElementById('send');
-
-        send.onclick = async () => {
-          const query = input.value.trim();
-          if (!query) return;
-          chat.innerHTML += '<p><b>You:</b> ' + query + '</p>';
-          input.value = '';
-          try {
-            const res = await fetch('http://localhost:8000/ask', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ query })
-            });
-            const json = await res.json();
-            chat.innerHTML += '<p><b>Bot:</b> ' + json.answer + '</p>';
-            chat.scrollTop = chat.scrollHeight;
-          } catch (err) {
-            chat.innerHTML += '<p><b>Bot:</b> [Error: could not connect]</p>';
-          }
-        };
-      </script>
-    </body>
-    </html>
-  `;
-}
-
-export function deactivate() {}
-```
+[edit /vscode-extensions-mcp-101/src/extension.ts](/vscode-extensions-mcp-101/src/extension.ts) which contains the code the vscode extension,
 
 ### edit command
 
-edit <PATH_TO_REPO>/vscode-extensions-mcp-101/package.json
-change,
+[edit /vscode-extensions-mcp-101/package.json](/vscode-extensions-mcp-101/package.json) which contains settings for the vscode extension,
+
+specificaly we change,
 
 ```json
 "activationEvents": [],
@@ -320,7 +221,3 @@ Launch extension dev host,
   - F5 or Ctrl + F5
 - windows
   - F5
-
-
-
-
