@@ -18,8 +18,10 @@ ollama run mistral
 
 ## create requirements.txt for python
 
+```text
 llama-index
 llama-index-llms-ollama
 llama-index-readers-web
 llama-index-readers-file
+```
 
