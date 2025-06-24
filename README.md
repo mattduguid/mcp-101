@@ -58,7 +58,7 @@ web_docs = SimpleWebPageReader().load_data(urls)
 documents = local_docs + web_docs
 
 # create index and chat
-llm = Ollama(model="mistral")
+llm = Ollama(model="mistral") # <-- this is where it used the container downloaded in section above "run ollama"
 index = VectorStoreIndex.from_documents(documents)
 chat_engine = index.as_chat_engine()
 
