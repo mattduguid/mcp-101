@@ -36,7 +36,7 @@ mkdir /data
 # copy in any text files you want searched eg: *.pdf, *.md, *.txt, etc
 ```
 
-## create POC MCP server from content that is searched
+## create MCP server from content to be searched
 
 ```python
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
