@@ -275,5 +275,6 @@ Open command palette from the dev host in its own window,
 - all OSes
   - Ctrl + Shift + P
 
-Type "MCP Chat: Open Local Assistant",
+Type "MCP Chat: Open Local Assistant", and it will load allowing queries to be made against your custom content,
 
+![vscode extension using MCP server](md/extension-vscode.png "vscode extension using MCP server")
