@@ -40,9 +40,9 @@ pip3 --version
 
 ```bash
 # downloads on first run ~4.1GB
-ollama run mistral
-# OR
 ollama run nomic-embed-text
+# OR
+ollama run mistral
 ```
 
 ## create requirements.txt for python and install
@@ -99,9 +99,8 @@ curl -X POST http://localhost:8000/ask -H "Content-Type: application/json" -d '{
 {"answer":" Porirua is a city located in the North Island of New Zealand."}%
 ```
 
-Now we know it works via the API that could be exposed to the outside world through method of choice i'd use cloudflared tunnels to wrap it with a custom domain name and SSL certificate and host it properly
-
-In next step we can create a basic visual studio code extension to provide a UI for users to query it, initially locally just for this 101 exercise but if releasing for public consumption point it at the public API endpoint
+- now we know it works via the local API endpoint, it could be exposed to the outside world through method of choice such as cloudflared tunnels to wrap it with a custom domain name and SSL certificate
+- in next step we can create a basic visual studio code extension to provide a UI for users to query it, initially locally just for this 101 exercise but if releasing for public consumption point it at the public API endpoint
 
 ## create visual studio plugin
 
@@ -164,7 +163,7 @@ node -v # Should print "v22.16.0".
 npm -v # Should print "10.9.2".
 ```
 
-### scaffold a Visual Studio Code (VS Code) extension
+### scaffold a visual studio code extension
 
 ```bash/powershell
 # create folder for vscode extension
@@ -224,7 +223,7 @@ For more information, also visit http://code.visualstudio.com and follow us @cod
 
 ### add code to scaffold
 
-[edit /vscode-extensions-mcp-101/src/extension.ts](/vscode-extensions-mcp-101/src/extension.ts) which contains the code the vscode extension,
+[edit /vscode-extensions-mcp-101/src/extension.ts](/vscode-extensions-mcp-101/src/extension.ts) which contains the code for the vscode extension,
 
 ### edit command
 
@@ -266,7 +265,7 @@ to,
   },
 ```
 
-### compile the vscode extension
+### compile the visual studio code extension
 
 ```bash
 cd /<OMITTED>/mcp-101/vscode-extensions-mcp-101
@@ -284,16 +283,16 @@ external "vscode" 42 bytes [built] [code generated]
 webpack 5.99.9 compiled successfully in 647 ms
 ```
 
-### open vscode extension
+### open visual studio code in the path of the extension
 
 ```bash
 cd /<OMITTED>/mcp-101/vscode-extensions-mcp-101
-code
+code .
 ```
 
-### run the vscode extension
+### run compiled extension in visual studio code
 
-Launch extension dev host in its own window,
+use dev host in its own window,
 
 - mac
  - Fn + F5 or Cmd + Fn + F5
@@ -302,11 +301,11 @@ Launch extension dev host in its own window,
 - windows
   - F5
  
-Open command palette from the dev host in its own window,
+open command palette from the dev host in its own window,
 
 - all OSes
   - Ctrl + Shift + P
 
-Type "MCP Chat: Open Local Assistant", and it will load allowing queries to be made against your custom content,
+type "MCP Chat: Open Local Assistant" (the name we gave it in "package.json") and it will load allowing queries to be made against your custom content,
 
 ![vscode extension using MCP server](md/extension-vscode.png "vscode extension using MCP server")
