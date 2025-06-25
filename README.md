@@ -1,5 +1,11 @@
 # mcp-101
 
+## overview
+
+- mcp-101 is a minimal proof-of-concept (POC) for running a local AI assistant that can answer questions from your own files. 
+- it uses just the essentials: Python, Ollama, LlamaIndex, and a simple VS Code extension UI. 
+- designed to test and validate the concept locally before iterating or scaling further.
+
 ## install python
 
 - mac
@@ -306,6 +312,6 @@ open command palette from the dev host in its own window,
 - all OSes
   - Ctrl + Shift + P
 
-type "MCP Chat: Open Local Assistant" (the name we gave it in "package.json") and it will load allowing queries to be made against your custom content,
+type "MCP Chat: Open Local Assistant" (the name we gave it in "package.json") and it will load allowing queries to be made against your custom content using the local MCP server,
 
 ![vscode extension using MCP server](md/extension-vscode.png "vscode extension using MCP server")
