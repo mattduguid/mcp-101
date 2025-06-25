@@ -295,7 +295,7 @@ code .
 use dev host in its own window,
 
 - mac
- - Fn + F5 or Cmd + Fn + F5
+  - Fn + F5 or Cmd + Fn + F5
 - linux
   - F5 or Ctrl + F5
 - windows
