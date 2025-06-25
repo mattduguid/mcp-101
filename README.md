@@ -1,5 +1,32 @@
 # mcp-101
 
+## install python
+
+- mac
+
+```bash
+brew install python
+python3 --version
+pip3 --version
+```
+
+- linux
+
+```bash
+sudo apt update
+sudo apt install -y python3 python3-pip
+python3 --version
+pip3 --version
+```
+
+- windows
+
+```bash
+winget install Python.Python.3
+python3 --version
+pip3 --version
+```
+
 ## install ollama
 
 - mac
@@ -25,8 +52,11 @@ ollama run nomic-embed-text
 ```text
 llama-index
 llama-index-llms-ollama
+llama-index-embeddings-ollama
 llama-index-readers-web
 llama-index-readers-file
+fastapi
+uvicorn
 ```
 
 ```bash
