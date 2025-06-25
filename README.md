@@ -234,9 +234,34 @@ to,
   },
 ```
 
-### Run a VS Code Extension
+### compile the vscode extension
 
-Launch extension dev host,
+```bash
+cd /<OMITTED>/mcp-101/vscode-extensions-mcp-101
+npm run compile
+
+> mcp-101@0.0.1 compile
+> webpack
+
+    [webpack-cli] Compiler starting... 
+    [webpack-cli] Compiler is using config: '/<OMITTED>/mcp-101/vscode-extensions-mcp-101/webpack.config.js'
+    [webpack-cli] Compiler finished
+asset extension.js 5.01 KiB [compared for emit] (name: main) 1 related asset
+./src/extension.ts 3.39 KiB [built] [code generated]
+external "vscode" 42 bytes [built] [code generated]
+webpack 5.99.9 compiled successfully in 647 ms
+```
+
+### open vscode extension
+
+```bash
+cd /<OMITTED>/mcp-101/vscode-extensions-mcp-101
+code
+```
+
+### run the vscode extension
+
+Launch extension dev host in its own window,
 
 - mac
  - Fn + F5 or Cmd + Fn + F5
@@ -244,3 +269,11 @@ Launch extension dev host,
   - F5 or Ctrl + F5
 - windows
   - F5
+ 
+Open command palette from the dev host in its own window,
+
+- all OSes
+  - Ctrl + Shift + P
+
+Type "MCP Chat: Open Local Assistant",
+
