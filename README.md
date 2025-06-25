@@ -12,8 +12,10 @@
 ## run ollama
 
 ```bash
-# start a model, downloads on first run ~4.1GB
+# downloads on first run ~4.1GB
 ollama run mistral
+# OR
+ollama run nomic-embed-text
 ```
 
 ## create requirements.txt for python and install
