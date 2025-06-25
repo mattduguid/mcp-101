@@ -169,7 +169,7 @@ node -v # Should print "v22.16.0".
 npm -v # Should print "10.9.2".
 ```
 
-### scaffold a visual studio code extension
+### create initial scaffold for a visual studio code extension
 
 ```bash/powershell
 # create folder for vscode extension
@@ -177,7 +177,7 @@ cd <PATH_TO_REPO>
 mkdir vscode-extensions-mcp-101
 cd vscode-extensions-mcp-101
 
-# create vscode extension scaffold
+# create initial vscode extension scaffold
 npm install -g yo generator-code
 yo code
 
@@ -227,11 +227,11 @@ To run the extension you need to install the recommended extension 'amodio.tsl-p
 For more information, also visit http://code.visualstudio.com and follow us @code.
 ```
 
-### add code to scaffold
+### add custom code to scaffold
 
 [edit /vscode-extensions-mcp-101/src/extension.ts](/vscode-extensions-mcp-101/src/extension.ts) which contains the code for the vscode extension,
 
-### edit command
+### edit package.json in scaffold for the activationEvents and commands
 
 [edit /vscode-extensions-mcp-101/package.json](/vscode-extensions-mcp-101/package.json) which contains settings for the vscode extension,
 
@@ -296,9 +296,7 @@ cd /<OMITTED>/mcp-101/vscode-extensions-mcp-101
 code .
 ```
 
-### run compiled extension in visual studio code
-
-use dev host in its own window,
+### open dev host instance of visual studio code
 
 - mac
   - Fn + F5 or Cmd + Fn + F5
@@ -307,11 +305,12 @@ use dev host in its own window,
 - windows
   - F5
  
-open command palette from the dev host in its own window,
+### open command palette and the visual studio code extension
 
 - all OSes
   - Ctrl + Shift + P
-
-type "MCP Chat: Open Local Assistant" (the name we gave it in "package.json") and it will load allowing queries to be made against your custom content using the local MCP server,
+  - type "MCP Chat: Open Local Assistant" (the name we gave it in "package.json") and it will load allowing queries to be made against your custom content using the local MCP server
+ 
+### final result
 
 ![vscode extension using MCP server](md/extension-vscode.png "vscode extension using MCP server")
