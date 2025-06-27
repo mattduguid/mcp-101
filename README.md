@@ -349,3 +349,6 @@ https://insiders.vscode.dev/redirect/mcp/install?name=MY_MCP_SERVER&config=%7B%0
 ```markdown
 [![Install MCP Server](https://img.shields.io/badge/VS%20Code-Install%20mcp-101-blue)](https://insiders.vscode.dev/redirect/mcp/install?name=MY_MCP_SERVER&config=%7B%0A%20%20%22type%22%3A%20%22http%22%2C%0A%20%20%22url%22%3A%20%22http%3A%2F%2F127.0.0.1%3A8000%22%0A%7D)
 ```
+
+which creates,
+[![Install MCP Server](https://img.shields.io/badge/VS%20Code-Install%20mcp-101-blue)](https://insiders.vscode.dev/redirect/mcp/install?name=MY_MCP_SERVER&config=%7B%0A%20%20%22type%22%3A%20%22http%22%2C%0A%20%20%22url%22%3A%20%22http%3A%2F%2F127.0.0.1%3A8000%22%0A%7D)
