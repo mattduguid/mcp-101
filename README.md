@@ -42,11 +42,11 @@ pip3 --version
 - windows
   - https://ollama.com/download/windows
 
-## run ollama
+## download ollama container(s)
 
 ```bash
 # downloads on first run ~4.1GB
-ollama run nomic-embed-text
+ollama run nomic-embed-text 
 # OR
 ollama run mistral
 ```
@@ -304,7 +304,7 @@ to,
     "commands": [
       {
         "command": "mcp-101.chat",
-        "title": "Matt Chat mcp-101: Open Local Assistant"
+        "title": "Matt Chat mcp-101: Open"
       }
     ]
   },
