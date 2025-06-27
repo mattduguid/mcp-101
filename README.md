@@ -244,7 +244,7 @@ For more information, also visit http://code.visualstudio.com and follow us @cod
 
 [edit /vscode-extensions-mcp-101/package.json](/vscode-extensions-mcp-101/package.json) which contains settings for the vscode extension,
 
-specificaly we,
+specifically we,
 - add "icon" which is our 128 pixel x 128 pixel in /icon.png used for the extension
 - add "publisher" and "repository" which are required for packaging into a .vsix
 - change "activationEvents" and "contributes/commands" for running the extension
@@ -360,12 +360,19 @@ mattduguid.mcp-101
 uninstall it,
 
 ```bash
-code --uninstall-extension ./mcp-101-0.0.1.vsix
+code --uninstall-extension mattduguid.mcp-101
 
 Uninstalling mattduguid.mcp-101...
 Extension 'mattduguid.mcp-101' was successfully uninstalled!
 ```
 
-use it,
+use it, 
+
+- via command palette
+  - (Cmd+Shift+P) → type "Matt Chat mcp-101: Open"
+- via keyboard shortcut
+  - press Ctrl+Alt+M (Win/Linux) / Ctrl+Cmd+M (Mac) to launch the assistant.
+- via the status bar button
+  - bottom left of the visual studio code window click "Matt Chat mcp-101"
 
 ![vscode extension using custom MCP server](md/extension-vscode.png "vscode extension using custom MCP server")
