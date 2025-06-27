@@ -244,9 +244,16 @@ For more information, also visit http://code.visualstudio.com and follow us @cod
 
 [edit /vscode-extensions-mcp-101/package.json](/vscode-extensions-mcp-101/package.json) which contains settings for the vscode extension,
 
-specificaly we add "publisher" and "repository" which are required for packaging into a .vsix, and we change "activationEvents" and "contributes/commands" for running the extension,
+specificaly we,
+- add "icon" which is our 128 pixel x 128 pixel in /icon.png used for the extension
+- add "publisher" and "repository" which are required for packaging into a .vsix
+- change "activationEvents" and "contributes/commands" for running the extension,
 
 ```json
+...etc...
+
+"icon": "icon.png",
+
 ...etc...
 
 "publisher": "mattduguid", 
@@ -375,9 +382,12 @@ code --install-extension ./mcp-101-0.0.1.vsix
 
 Installing extensions...
 Extension 'mcp-101-0.0.1.vsix' was successfully installed.
+
+code --list-extensions | grep "101"          
+mattduguid.mcp-101
 ```
 
-install it,
+uninstall it,
 
 ```bash
 code --uninstall-extension ./mcp-101-0.0.1.vsix
