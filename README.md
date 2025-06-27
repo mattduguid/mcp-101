@@ -247,7 +247,8 @@ For more information, also visit http://code.visualstudio.com and follow us @cod
 specificaly we,
 - add "icon" which is our 128 pixel x 128 pixel in /icon.png used for the extension
 - add "publisher" and "repository" which are required for packaging into a .vsix
-- change "activationEvents" and "contributes/commands" for running the extension,
+- change "activationEvents" and "contributes/commands" for running the extension
+- add "keybindings" for easy keyboard shortcuts
 
 ```json
 ...etc...
@@ -310,51 +311,7 @@ to,
   },
 ```
 
-### compile the visual studio code extension
-
-```bash
-cd /<OMITTED>/mcp-101/vscode-extensions-mcp-101
-npm run compile
-
-> mcp-101@0.0.1 compile
-> webpack
-
-    [webpack-cli] Compiler starting... 
-    [webpack-cli] Compiler is using config: '/<OMITTED>/mcp-101/vscode-extensions-mcp-101/webpack.config.js'
-    [webpack-cli] Compiler finished
-asset extension.js 5.01 KiB [compared for emit] (name: main) 1 related asset
-./src/extension.ts 3.39 KiB [built] [code generated]
-external "vscode" 42 bytes [built] [code generated]
-webpack 5.99.9 compiled successfully in 647 ms
-```
-
-### open visual studio code in the path of the extension
-
-```bash
-cd /<OMITTED>/mcp-101/vscode-extensions-mcp-101
-code .
-```
-
-### open dev host instance of visual studio code
-
-- mac
-  - Fn + F5 or Cmd + Fn + F5
-- linux
-  - F5 or Ctrl + F5
-- windows
-  - F5
- 
-### open command palette and the visual studio code extension
-
-- all OSes
-  - Ctrl + Shift + P
-  - type "Matt Chat mcp-101: Open Local Assistant" (the name we gave it in "package.json") and it will load allowing queries to be made against your custom content using the local MCP server
- 
-### final result
-
-![vscode extension using MCP server](md/extension-vscode.png "vscode extension using MCP server")
-
-## build a .vsix for easy install/uninstall
+## build a redistributable .vsix for easy install/uninstall
 
 create some files required for packaging into a .vsix,
 
@@ -365,7 +322,7 @@ echo "## Changelog" > CHANGELOG.md
 echo "## License" > LICENSE.md
 ```
 
-package it,
+compile & package it,
 
 ```bash
 cd /<OMITTED>/mcp-101/vscode-extensions-mcp-101
@@ -410,3 +367,5 @@ Extension 'mattduguid.mcp-101' was successfully uninstalled!
 ```
 
 use it,
+
+![vscode extension using MCP server](md/extension-vscode.png "vscode extension using MCP server")
