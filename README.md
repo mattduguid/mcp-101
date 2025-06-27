@@ -368,4 +368,4 @@ Extension 'mattduguid.mcp-101' was successfully uninstalled!
 
 use it,
 
-![vscode extension using MCP server](md/extension-vscode.png "vscode extension using MCP server")
+![vscode extension using custom MCP server](md/extension-vscode.png "vscode extension using custom MCP server")
