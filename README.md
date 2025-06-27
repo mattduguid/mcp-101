@@ -130,6 +130,9 @@ nvm current # Should print "v22.16.0".
 
 # Verify npm version
 npm -v # Should print "10.9.2".
+
+# install the visual studio code extension manager, allows creation of redistributable .vsix file
+npm install -g vsce
 ```
 
 - linux
@@ -151,6 +154,9 @@ nvm current # Should print "v22.16.0".
 
 # Verify npm version
 npm -v # Should print "10.9.2".
+
+# install the visual studio code extension manager, allows creation of redistributable .vsix file
+npm install -g vsce
 ```
 
 - windows
@@ -167,6 +173,9 @@ node -v # Should print "v22.16.0".
 
 # Verify npm version
 npm -v # Should print "10.9.2".
+
+# install the visual studio code extension manager, allows creation of redistributable .vsix file
+npm install -g vsce
 ```
 
 ### create initial scaffold for a visual studio code extension
@@ -231,13 +240,23 @@ For more information, also visit http://code.visualstudio.com and follow us @cod
 
 [edit /vscode-extensions-mcp-101/src/extension.ts](/vscode-extensions-mcp-101/src/extension.ts) which contains the code for the vscode extension,
 
-### edit package.json in scaffold for the activationEvents and commands
+### edit package.json in scaffold
 
 [edit /vscode-extensions-mcp-101/package.json](/vscode-extensions-mcp-101/package.json) which contains settings for the vscode extension,
 
-specificaly we change,
+specificaly we add "publisher" and "repository" which are required for packaging into a .vsix, and we change "activationEvents" and "contributes/commands" for running the extension,
 
 ```json
+...etc...
+
+"publisher": "mattduguid", 
+"repository": {
+  "type": "git",
+  "url": "https://github.com/mattduguid/mcp-101.git"
+},
+
+...etc...
+
 "activationEvents": [],
 
 ..etc...
@@ -315,40 +334,56 @@ code .
 
 ![vscode extension using MCP server](md/extension-vscode.png "vscode extension using MCP server")
 
-## generate your own MCP install link using markdown
+## build a .vsix for easy install/uninstall
 
-### create json definition
+create some files required for packaging into a .vsix,
 
-```json
-{
-  "type": "http",
-  "url": "http://127.0.0.1:8000"
-}
+```bash
+cd /<OMITTED>/mcp-101/vscode-extensions-mcp-101
+echo "# mcp-101" > README.md
+echo "## Changelog" > CHANGELOG.md
+echo "## License" > LICENSE.md
 ```
 
-### url encode the json definition
+package it,
 
-- https://www.urlencoder.org/
+```bash
+cd /<OMITTED>/mcp-101/vscode-extensions-mcp-101
+vsce package                  
+Executing prepublish script 'npm run vscode:prepublish'...
 
-```html
-%7B%0A%20%20%22type%22%3A%20%22http%22%2C%0A%20%20%22url%22%3A%20%22http%3A%2F%2F127.0.0.1%3A8000%22%0A%7D
+> mcp-101@0.0.1 vscode:prepublish
+> npm run package
+
+> mcp-101@0.0.1 package
+> webpack --mode production --devtool hidden-source-map
+
+    [webpack-cli] Compiler starting... 
+    [webpack-cli] Compiler is using config: '/<OMITTED>/mcp-101/vscode-extensions-mcp-101/webpack.config.js'
+    [webpack-cli] Compiler finished
+asset extension.js 3.42 KiB [compared for emit] [minimized] (name: main) 1 related asset
+./src/extension.ts 4.2 KiB [built] [code generated]
+external "vscode" 42 bytes [built] [code generated]
+webpack 5.99.9 compiled successfully in 675 ms
+ DONE  Packaged: /<OMITTED>/mcp-101/vscode-extensions-mcp-101/mcp-101-0.0.1.vsix (7 files, 4.03KB)
 ```
 
-### build the link
+install it,
 
-```html
-# template
-https://insiders.vscode.dev/redirect/mcp/install?name=YOUR_SERVER_NAME&config=ENCODED_JSON
+```bash
+code --install-extension ./mcp-101-0.0.1.vsix
 
-# built
-https://insiders.vscode.dev/redirect/mcp/install?name=MY_MCP_SERVER&config=%7B%0A%20%20%22type%22%3A%20%22http%22%2C%0A%20%20%22url%22%3A%20%22http%3A%2F%2F127.0.0.1%3A8000%22%0A%7D
+Installing extensions...
+Extension 'mcp-101-0.0.1.vsix' was successfully installed.
 ```
 
-### create a markdown link for your github page
+install it,
 
-```markdown
-[![Install MCP Server](https://camo.githubusercontent.com/1095942dd67c822e29ea2a8e70104baea63dbbcf8f3a39ce22fb5a1fd60f43a7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f56535f436f64652d496e7374616c6c5f5365727665722d3030393846463f7374796c653d666c61742d737175617265266c6f676f3d76697375616c73747564696f636f6465266c6f676f436f6c6f723d7768697465)](https://insiders.vscode.dev/redirect/mcp/install?name=MY_MCP_SERVER&config=%7B%0A%20%20%22type%22%3A%20%22http%22%2C%0A%20%20%22url%22%3A%20%22http%3A%2F%2F127.0.0.1%3A8000%22%0A%7D)
+```bash
+code --uninstall-extension ./mcp-101-0.0.1.vsix
+
+Uninstalling mattduguid.mcp-101...
+Extension 'mattduguid.mcp-101' was successfully uninstalled!
 ```
 
-which creates,
-[![Install MCP Server]([https://img.shields.io/badge/VS%20Code-Install%20mcp-101-blue](https://camo.githubusercontent.com/1095942dd67c822e29ea2a8e70104baea63dbbcf8f3a39ce22fb5a1fd60f43a7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f56535f436f64652d496e7374616c6c5f5365727665722d3030393846463f7374796c653d666c61742d737175617265266c6f676f3d76697375616c73747564696f636f6465266c6f676f436f6c6f723d7768697465))](https://insiders.vscode.dev/redirect/mcp/install?name=MY_MCP_SERVER&config=%7B%0A%20%20%22type%22%3A%20%22http%22%2C%0A%20%20%22url%22%3A%20%22http%3A%2F%2F127.0.0.1%3A8000%22%0A%7D)
+
