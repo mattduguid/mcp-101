@@ -75,6 +75,8 @@ pip3 install -r requirements.txt
 mkdir /data
 # copy in any text files you want searched eg: *.pdf, *.md, *.txt, etc
 ```
+- this uses a couple of .pdf/.md files containing recipes [/data](data)
+- also a couple of web URLs, one for a wiki about the city of Porirua and one for a wiki of a work mate contained in the python code [/main.py](main.py)
 
 ## create MCP server from content to be searched
 
