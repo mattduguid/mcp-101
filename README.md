@@ -347,8 +347,8 @@ https://insiders.vscode.dev/redirect/mcp/install?name=MY_MCP_SERVER&config=%7B%0
 ### create a markdown link for your github page
 
 ```markdown
-[![Install MCP Server](https://img.shields.io/badge/VS%20Code-Install%20mcp-101-blue)](https://insiders.vscode.dev/redirect/mcp/install?name=MY_MCP_SERVER&config=%7B%0A%20%20%22type%22%3A%20%22http%22%2C%0A%20%20%22url%22%3A%20%22http%3A%2F%2F127.0.0.1%3A8000%22%0A%7D)
+[![Install MCP Server](https://camo.githubusercontent.com/1095942dd67c822e29ea2a8e70104baea63dbbcf8f3a39ce22fb5a1fd60f43a7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f56535f436f64652d496e7374616c6c5f5365727665722d3030393846463f7374796c653d666c61742d737175617265266c6f676f3d76697375616c73747564696f636f6465266c6f676f436f6c6f723d7768697465)](https://insiders.vscode.dev/redirect/mcp/install?name=MY_MCP_SERVER&config=%7B%0A%20%20%22type%22%3A%20%22http%22%2C%0A%20%20%22url%22%3A%20%22http%3A%2F%2F127.0.0.1%3A8000%22%0A%7D)
 ```
 
 which creates,
-[![Install MCP Server](https://img.shields.io/badge/VS%20Code-Install%20mcp-101-blue)](https://insiders.vscode.dev/redirect/mcp/install?name=MY_MCP_SERVER&config=%7B%0A%20%20%22type%22%3A%20%22http%22%2C%0A%20%20%22url%22%3A%20%22http%3A%2F%2F127.0.0.1%3A8000%22%0A%7D)
+[![Install MCP Server]([https://img.shields.io/badge/VS%20Code-Install%20mcp-101-blue](https://camo.githubusercontent.com/1095942dd67c822e29ea2a8e70104baea63dbbcf8f3a39ce22fb5a1fd60f43a7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f56535f436f64652d496e7374616c6c5f5365727665722d3030393846463f7374796c653d666c61742d737175617265266c6f676f3d76697375616c73747564696f636f6465266c6f676f436f6c6f723d7768697465))](https://insiders.vscode.dev/redirect/mcp/install?name=MY_MCP_SERVER&config=%7B%0A%20%20%22type%22%3A%20%22http%22%2C%0A%20%20%22url%22%3A%20%22http%3A%2F%2F127.0.0.1%3A8000%22%0A%7D)
