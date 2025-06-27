@@ -284,7 +284,7 @@ to,
     "commands": [
       {
         "command": "mcp-101.chat",
-        "title": "MCP Chat: Open Local Assistant"
+        "title": "Matt Chat mcp-101: Open Local Assistant"
       }
     ]
   },
@@ -328,7 +328,7 @@ code .
 
 - all OSes
   - Ctrl + Shift + P
-  - type "MCP Chat: Open Local Assistant" (the name we gave it in "package.json") and it will load allowing queries to be made against your custom content using the local MCP server
+  - type "Matt Chat mcp-101: Open Local Assistant" (the name we gave it in "package.json") and it will load allowing queries to be made against your custom content using the local MCP server
  
 ### final result
 
