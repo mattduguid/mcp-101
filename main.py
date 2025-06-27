@@ -30,7 +30,10 @@ for doc in local_docs:
     doc.metadata["source"] = "file"
 
 # Load specific web URLs
-urls = ["https://en.wikipedia.org/wiki/Porirua"]
+urls = [
+    "https://en.wikipedia.org/wiki/Porirua",
+    "https://docs.driesventer.com/"
+]
 web_docs = BeautifulSoupWebReader().load_data(urls)
 for doc in web_docs:
     doc.metadata["source"] = "web"

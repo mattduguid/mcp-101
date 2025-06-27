@@ -3,6 +3,12 @@
   "displayName": "mcp-101",
   "description": "mcp-101",
   "version": "0.0.1",
+  "icon": "icon.png",
+  "publisher": "mattduguid", 
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattduguid/mcp-101.git"
+  },
   "engines": {
     "vscode": "^1.101.0"
   },
@@ -15,10 +21,18 @@
     "commands": [
       {
         "command": "mcp-101.chat",
-        "title": "MCP Chat: Open Local Assistant"
+        "title": "Matt Chat mcp-101: Open"
       }
     ]
   },
+  "keybindings": [
+    {
+      "command": "mcp-101.chat",
+      "key": "ctrl+alt+m",
+      "mac": "ctrl+cmd+m",
+      "when": "editorTextFocus || editorFocus || explorerViewletVisible || inCompositeEditor || sideBarVisible || panelVisible"
+    }
+  ],
   "scripts": {
     "vscode:prepublish": "npm run package",
     "compile": "webpack",
