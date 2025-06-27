@@ -276,6 +276,19 @@ specificaly we,
       }
     ]
   },
+
+...etc...
+
+"keybindings": [
+  {
+    "command": "mcp-101.chat",
+    "key": "ctrl+alt+m",
+    "mac": "ctrl+cmd+m",
+    "when": "editorTextFocus || editorFocus || explorerViewletVisible || inCompositeEditor || sideBarVisible || panelVisible"
+  }
+],
+
+...etc...
 ```
 
 to,
@@ -396,4 +409,4 @@ Uninstalling mattduguid.mcp-101...
 Extension 'mattduguid.mcp-101' was successfully uninstalled!
 ```
 
-
+use it,
