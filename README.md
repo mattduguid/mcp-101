@@ -253,56 +253,19 @@ specifically we,
 - add "keybindings" for easy keyboard shortcuts
 
 ```json
-...etc...
-
+...
 "icon": "icon.png",
-
-...etc...
-
+...
 "publisher": "mattduguid", 
 "repository": {
   "type": "git",
   "url": "https://github.com/mattduguid/mcp-101.git"
 },
-
-...etc...
-
-"activationEvents": [],
-
-..etc...
-
-"contributes": {
-    "commands": [
-      {
-        "command": "mcp-101.helloWorld",
-        "title": "Hello World"
-      }
-    ]
-  },
-
-...etc...
-
-"keybindings": [
-  {
-    "command": "mcp-101.chat",
-    "key": "ctrl+alt+m",
-    "mac": "ctrl+cmd+m",
-    "when": "editorTextFocus || editorFocus || explorerViewletVisible || inCompositeEditor || sideBarVisible || panelVisible"
-  }
-],
-
-...etc...
-```
-
-to,
-
-```json
+...
 "activationEvents": [
   "onCommand:mcp-101.chat"
 ],
-
-...etc...
-
+...
 "contributes": {
     "commands": [
       {
@@ -311,6 +274,15 @@ to,
       }
     ]
   },
+...
+"keybindings": [
+  {
+    "command": "mcp-101.chat",
+    "key": "ctrl+alt+m",
+    "mac": "ctrl+cmd+m",
+    "when": "editorTextFocus || editorFocus || explorerViewletVisible || inCompositeEditor || sideBarVisible || panelVisible"
+  }
+],
 ```
 
 ## build a redistributable .vsix for easy install/uninstall
