@@ -69,7 +69,7 @@ uvicorn
 pip3 install -r requirements.txt
 ```
 
-## create folder of content to be searched
+## create folder of content for MCP server to index
 
 ```bash
 mkdir /data
@@ -78,9 +78,9 @@ mkdir /data
 - this uses a couple of .pdf/.md files containing recipes [/data](data)
 - also a couple of web URLs, one for a wiki about the city of Porirua and one for a wiki of a work mate contained in the python code [/main.py#L32-L39](main.py#L32-L39)
 
-## create MCP server from content to be searched
+## create MCP server
 
-[edit main.py](main.py) which contains the code to run the MCP server including links to my sample .pdf/.md/web urls for custom content,
+[/main.py](/main.py) which contains the code to run the MCP server including links to my sample .pdf/.md/web urls for custom content,
 
 ## run and test (from cli)
 
@@ -183,12 +183,12 @@ npm install -g vsce
 ### create initial scaffold for a visual studio code extension
 
 ```bash/powershell
-# create folder for vscode extension
+# create folder for visual studio code extension
 cd <PATH_TO_REPO>
 mkdir vscode-extensions-mcp-101
 cd vscode-extensions-mcp-101
 
-# create initial vscode extension scaffold
+# create initial visual studio code extension scaffold
 npm install -g yo generator-code
 yo code
 
@@ -240,11 +240,11 @@ For more information, also visit http://code.visualstudio.com and follow us @cod
 
 ### add custom code to scaffold
 
-[edit /vscode-extensions-mcp-101/src/extension.ts](/vscode-extensions-mcp-101/src/extension.ts) which contains the code for the vscode extension,
+[/vscode-extensions-mcp-101/src/extension.ts](/vscode-extensions-mcp-101/src/extension.ts) contains the code for the visual studio code extension,
 
 ### edit package.json in scaffold
 
-[edit /vscode-extensions-mcp-101/package.json](/vscode-extensions-mcp-101/package.json) which contains settings for the vscode extension,
+[/vscode-extensions-mcp-101/package.json](/vscode-extensions-mcp-101/package.json) contains settings for the visual studio code extension,
 
 specifically we,
 - add "icon" which is our 128 pixel x 128 pixel in /icon.png used for the extension
@@ -349,4 +349,4 @@ use it,
 - via the status bar button
   - bottom left of the visual studio code window click "Matt Chat mcp-101"
 
-![vscode extension using custom MCP server](md/extension-vscode.png "vscode extension using custom MCP server")
+![visual studio code extension using custom MCP server](md/extension-vscode.png "visual studio code extension using custom MCP server")
