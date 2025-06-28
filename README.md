@@ -75,8 +75,8 @@ pip3 install -r requirements.txt
 mkdir /data
 # copy in any text files you want searched eg: *.pdf, *.md, *.txt, etc
 ```
-- this uses a couple of .pdf/.md files containing recipes [/data](data)
-- also a couple of web URLs, one for a wiki about the city of Porirua and one for a wiki of a work mate contained in the python code [/main.py#L32-L39](main.py#L32-L39)
+- used two different file types (.pdf/.md) containing recipes located here [/data](data)
+- used two different web URLs, one for a wiki about the city of Porirua and one for a wiki of a work mate contained in the python code located here [/main.py#L32-L39](main.py#L32-L39)
 
 ## create MCP server
 
@@ -101,14 +101,11 @@ INFO:     Application startup complete.
 ```
 
 ```bash
-# query MCP server
+# test query the MCP server
 curl -X POST http://localhost:8000/ask -H "Content-Type: application/json" -d '{"query": "what is porirua"}'
 
 {"answer":" Porirua is a city located in the North Island of New Zealand."}%
 ```
-
-- now we know it works via the local API endpoint, it could be exposed to the outside world through method of choice such as cloudflared tunnels to wrap it with a custom domain name and SSL certificate
-- in next step we can create a basic visual studio code extension to provide a UI for users to query it, initially locally just for this 101 exercise but if releasing for public consumption point it at the public API endpoint
 
 ## create visual studio plugin
 
